@@ -6,7 +6,7 @@
 #    By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/22 18:48:56 by faaraujo          #+#    #+#              #
-#    Updated: 2024/05/31 18:27:45 by faaraujo         ###   ########.fr        #
+#    Updated: 2024/06/05 19:17:05 by faaraujo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,10 @@
 #                                 VARIABLES                                    #
 #******************************************************************************#
 
-NAME = phonebook
+NAME = zombie
 CXX = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g
-SRC = PhoneBook.cpp main.cpp
+SRC = Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
 OBJS = $(SRC:.cpp=.o)
 
 # .c.o:

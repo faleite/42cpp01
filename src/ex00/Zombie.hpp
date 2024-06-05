@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 20:09:03 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/06/04 21:05:19 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/06/05 19:00:16 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ class Zombie
 	private:
 		std::string name;
 	public:
-		Zombie(); // Zombie( void );
+		Zombie();
 		Zombie( std::string name );
 		~Zombie();
 		void announce( void );
 };
 
-// Zombie* newZombie( std::string name );
-// void randomChump( std::string name );
+Zombie* newZombie( std::string name );
+void randomChump( std::string name );
 
 #endif /* ZOMBIE_HPP */
