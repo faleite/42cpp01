@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 18:53:37 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/06/05 21:15:48 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:25:09 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(void)
 {
 	Zombie *zombies;
-	int		numZumbies(-1);
+	int		numZumbies(7);
 	
 	zombies = zombieHorde(numZumbies, "Zombie");
 	for (int i = 0; i < numZumbies; i++)

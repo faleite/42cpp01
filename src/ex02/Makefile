@@ -6,7 +6,7 @@
 #    By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/22 18:48:56 by faaraujo          #+#    #+#              #
-#    Updated: 2024/06/06 16:27:04 by faaraujo         ###   ########.fr        #
+#    Updated: 2024/06/06 16:32:41 by faaraujo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,10 @@
 #                                 VARIABLES                                    #
 #******************************************************************************#
 
-NAME = zombieHorde
+NAME = brain
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
-SRC = Zombie.cpp zombieHorde.cpp main.cpp
+SRC = main.cpp
 OBJS = $(SRC:.cpp=.o)
 
 

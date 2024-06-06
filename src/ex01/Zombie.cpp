@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 20:21:04 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/06/05 20:50:35 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:17:59 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ void Zombie::announce( void )
 
 Zombie::~Zombie()
 {
-	std::cout << name <<" died..." << std::endl;
+	std::cout << name <<" destroyed..." << std::endl;
 }
