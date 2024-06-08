@@ -6,9 +6,13 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:44:31 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/06/07 16:45:19 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/06/08 17:35:32 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {

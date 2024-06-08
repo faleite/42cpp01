@@ -6,7 +6,7 @@
 #    By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/22 18:48:56 by faaraujo          #+#    #+#              #
-#    Updated: 2024/06/06 16:32:41 by faaraujo         ###   ########.fr        #
+#    Updated: 2024/06/08 17:27:39 by faaraujo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,10 @@
 #                                 VARIABLES                                    #
 #******************************************************************************#
 
-NAME = brain
+NAME = unnecesaryViolence
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
-SRC = main.cpp
+SRC = Weapon.cpp HumanA.cpp HumanB.cpp main.cpp
 OBJS = $(SRC:.cpp=.o)
 
 
@@ -51,6 +51,9 @@ re: fclean all
 	@echo "$(RED)$(NAME) $(GREEN)has been recompiled.$(CLR_RESET)"
 	@echo "$(PURPLE)====================================$(CLR_RESET)"
 
+run: re
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME)
+	
 .PHONY: all clean fclean re
 
 #******************************************************************************#
