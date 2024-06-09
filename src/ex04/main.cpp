@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 15:18:01 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/06/09 16:46:56 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/06/09 21:22:00 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,15 @@ int	main(int argc, char *argv[])
 	while (std::getline(inputFile, line))
 		data += line + "\n";
 	std::cout << "Dados do Arquivo: \n" << data;
+	
+	/*
+	 * `c_str()` e um metodo da classe std::string em C++ 
+	 * retorna um ponteiro para um array de caracteres terminados em null 
+	 * (null-terminated character array), que é uma representação em C 
+	 * da string armazenada no objeto std::string.
+	*/
+	std::ofstream outputFile((std::string(argv[1]) + ".replace").c_str());
+	
 	inputFile.close();
-	std::ofstream outputFile(std::string(argv[1]) + ".replace");
 	return (0);
 }
