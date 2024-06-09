@@ -1,0 +1,3 @@
+std::cerr << "Invalid use!" << std::endl;
+std::cout << "Try: " << program;
+std::cout << " <filename> <string1> <string2>" << std::endl;

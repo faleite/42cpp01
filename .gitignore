@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/c++,macos,linux,cmake,visualstudiocode,vim
 # Edit at https://www.toptal.com/developers/gitignore?templates=c++,macos,linux,cmake,visualstudiocode,vim
 
+### bash files ###
+.bash_history
+
 ### file to study ###
 test.cpp
 
