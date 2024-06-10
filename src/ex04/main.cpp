@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 15:18:01 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/06/09 21:22:00 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/06/10 20:27:27 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,16 @@
 #include <fstream>
 #include <cstdlib>
 
-// std::string	replaceFunction(const std::string filename)
-// {
-// }
+void	replaceFunction(std::string& data,
+							const std::string& str1, const std::string& str2)
+{
+	size_t pos = data.find(str1);
+	while (pos != std::string::npos)
+	{
+		data = data.substr(0, pos) + str2 + data.substr(pos + str1.length());
+		pos = data.find(str1);
+	}
+}
 
 void	messageError(const std::string& program)
 {
@@ -43,7 +50,11 @@ int	main(int argc, char *argv[])
 	std::string data, line;
 	while (std::getline(inputFile, line))
 		data += line + "\n";
-	std::cout << "Dados do Arquivo: \n" << data;
+	if (data == "\n")
+		fileError("VAZIO!");
+	// std::cout << "Dados do Arquivo: \n" << data;
+	replaceFunction(data, argv[2], argv[3]);
+	// std::cout << "Dados do Replace: \n" << data;
 	
 	/*
 	 * `c_str()` e um metodo da classe std::string em C++ 
@@ -52,7 +63,11 @@ int	main(int argc, char *argv[])
 	 * da string armazenada no objeto std::string.
 	*/
 	std::ofstream outputFile((std::string(argv[1]) + ".replace").c_str());
+	outputFile << data;	
+	if (!outputFile.eof())
+		outputFile << std::endl;
 	
 	inputFile.close();
+	outputFile.close();
 	return (0);
 }
