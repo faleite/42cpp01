@@ -170,3 +170,210 @@ class Weapon
 ### Conclusão
 
 A assinatura `const std::string& getType() const;` é uma prática recomendada para fornecer acesso seguro e eficiente a um membro de dados `std::string` em uma classe, garantindo que o método não possa modificar o objeto e que a string retornada não possa ser modificada pelo chamador.
+
+## EX 04 (biblioteca `<fstream>`)
+
+### Resumo
+Presentes na biblioteca `<fstream>` em C++ são usadas para operações de entrada e saída em arquivos. Aqui está um resumo de como cada uma delas funciona e seus principais métodos:
+
+- `std::ifstream` é usado para leitura de arquivos.
+- `std::ofstream` é usado para escrita em arquivos.
+- `std::fstream` é usado para leitura e escrita em arquivos.
+- O modo de abertura determina como o arquivo é manipulado (leitura, escrita, binário, etc.).
+
+### 1. `std::ifstream` (Input File Stream)
+
+`std::ifstream` é usada para operações de leitura em arquivos.
+
+#### Principais Métodos:
+- **Construtores**:
+  ```cpp
+  std::ifstream();
+  std::ifstream(const char* filename, std::ios_base::openmode mode = std::ios_base::in);
+  std::ifstream(const std::string& filename, std::ios_base::openmode mode = std::ios_base::in);
+  ```
+  - Abre um arquivo para leitura.
+  - `filename`: Nome do arquivo.
+  - `mode`: Modo de abertura (padrão é `std::ios_base::in`).
+
+- **`open`**:
+  ```cpp
+  void open(const char* filename, std::ios_base::openmode mode = std::ios_base::in);
+  void open(const std::string& filename, std::ios_base::openmode mode = std::ios_base::in);
+  ```
+  - Abre um arquivo se o construtor padrão foi usado.
+
+- **`close`**:
+  ```cpp
+  void close();
+  ```
+  - Fecha o arquivo.
+
+- **`is_open`**:
+  ```cpp
+  bool is_open() const;
+  ```
+  - Verifica se o arquivo foi aberto com sucesso.
+
+- **Operadores de Extração (`>>`)**:
+  ```cpp
+  ifstream file("example.txt");
+  int x;
+  file >> x;
+  ```
+
+### 2. `std::ofstream` (Output File Stream)
+
+`std::ofstream` é usada para operações de escrita em arquivos.
+
+#### Principais Métodos:
+- **Construtores**:
+  ```cpp
+  std::ofstream();
+  std::ofstream(const char* filename, std::ios_base::openmode mode = std::ios_base::out);
+  std::ofstream(const std::string& filename, std::ios_base::openmode mode = std::ios_base::out);
+  ```
+  - Abre um arquivo para escrita.
+  - `filename`: Nome do arquivo.
+  - `mode`: Modo de abertura (padrão é `std::ios_base::out`).
+
+- **`open`**:
+  ```cpp
+  void open(const char* filename, std::ios_base::openmode mode = std::ios_base::out);
+  void open(const std::string& filename, std::ios_base::openmode mode = std::ios_base::out);
+  ```
+  - Abre um arquivo se o construtor padrão foi usado.
+
+- **`close`**:
+  ```cpp
+  void close();
+  ```
+  - Fecha o arquivo.
+
+- **`is_open`**:
+  ```cpp
+  bool is_open() const;
+  ```
+  - Verifica se o arquivo foi aberto com sucesso.
+
+- **Operadores de Inserção (`<<`)**:
+  ```cpp
+  ofstream file("example.txt");
+  file << "Hello, world!";
+  ```
+
+### 3. `std::fstream` (File Stream)
+
+`std::fstream` é usada para operações de leitura e escrita em arquivos.
+
+#### Principais Métodos:
+- **Construtores**:
+  ```cpp
+  std::fstream();
+  std::fstream(const char* filename, std::ios_base::openmode mode = std::ios_base::in | std::ios_base::out);
+  std::fstream(const std::string& filename, std::ios_base::openmode mode = std::ios_base::in | std::ios_base::out);
+  ```
+  - Abre um arquivo para leitura e escrita.
+  - `filename`: Nome do arquivo.
+  - `mode`: Modo de abertura (padrão é `std::ios_base::in | std::ios_base::out`).
+
+- **`open`**:
+  ```cpp
+  void open(const char* filename, std::ios_base::openmode mode = std::ios_base::in | std::ios_base::out);
+  void open(const std::string& filename, std::ios_base::openmode mode = std::ios_base::in | std::ios_base::out);
+  ```
+  - Abre um arquivo se o construtor padrão foi usado.
+
+- **`close`**:
+  ```cpp
+  void close();
+  ```
+  - Fecha o arquivo.
+
+- **`is_open`**:
+  ```cpp
+  bool is_open() const;
+  ```
+  - Verifica se o arquivo foi aberto com sucesso.
+
+### Modos de Abertura (`std::ios_base::openmode`)
+
+Os modos de abertura especificam como o arquivo deve ser aberto:
+- **`std::ios_base::in`**: Abre para leitura.
+- **`std::ios_base::out`**: Abre para escrita.
+- **`std::ios_base::binary`**: Abre em modo binário.
+- **`std::ios_base::app`**: Abre para anexar.
+- **`std::ios_base::ate`**: Abre e move o ponteiro de arquivo para o final.
+- **`std::ios_base::trunc`**: Se o arquivo existe, ele é truncado (se for aberto para escrita).
+
+### Exemplo de Uso
+
+#### Leitura de um Arquivo
+
+```cpp
+#include <fstream>
+#include <iostream>
+#include <string>
+
+int main() {
+    std::ifstream inputFile("input.txt");
+    if (!inputFile.is_open()) {
+        std::cerr << "Error opening file" << std::endl;
+        return 1;
+    }
+
+    std::string line;
+    while (std::getline(inputFile, line)) {
+        std::cout << line << std::endl;
+    }
+
+    inputFile.close();
+    return 0;
+}
+```
+
+#### Escrita em um Arquivo
+
+```cpp
+#include <fstream>
+#include <iostream>
+
+int main() {
+    std::ofstream outputFile("output.txt");
+    if (!outputFile.is_open()) {
+        std::cerr << "Error opening file" << std::endl;
+        return 1;
+    }
+
+    outputFile << "Hello, world!" << std::endl;
+
+    outputFile.close();
+    return 0;
+}
+```
+
+#### Leitura e Escrita em um Arquivo
+
+```cpp
+#include <fstream>
+#include <iostream>
+#include <string>
+
+int main() {
+    std::fstream file("file.txt", std::ios::in | std::ios::out | std::ios::trunc);
+    if (!file.is_open()) {
+        std::cerr << "Error opening file" << std::endl;
+        return 1;
+    }
+
+    file << "Hello, world!" << std::endl;
+
+    file.seekg(0);  // Move the read pointer to the beginning of the file
+    std::string line;
+    std::getline(file, line);
+    std::cout << line << std::endl;
+
+    file.close();
+    return 0;
+}
+```

@@ -6,7 +6,7 @@
 #    By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/22 18:48:56 by faaraujo          #+#    #+#              #
-#    Updated: 2024/06/09 15:49:29 by faaraujo         ###   ########.fr        #
+#    Updated: 2024/06/11 18:42:52 by faaraujo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 NAME = replace
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
-SRC = main.cpp
+SRC = replace.cpp main.cpp
 OBJS = $(SRC:.cpp=.o)
 
 
@@ -52,7 +52,7 @@ re: fclean all
 	@echo "$(PURPLE)====================================$(CLR_RESET)"
 
 run: re
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME)
+	valgrind --track-fds=yes ./$(NAME) file test REPLACE
 	
 .PHONY: all clean fclean re
 
