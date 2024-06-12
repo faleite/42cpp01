@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 15:18:01 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/06/11 18:47:10 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:38:43 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(int argc, char *argv[])
 	std::string data, line;
 	while (std::getline(inputFile, line))
 		data += line + "\n";
+	inputFile.close();
 	if (whiteSpaces(data))
 	{
 		std::cerr << "Error:\nEmpty file" << std::endl;
@@ -55,7 +56,6 @@ int	main(int argc, char *argv[])
 		std::cerr << "Error:\nError writing to file" << std::endl;
 		return (4);
 	}
-	inputFile.close();
 	outputFile.close();
 	return (0);
 }
