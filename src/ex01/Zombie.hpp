@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 20:09:03 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/06/05 21:03:02 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/06/12 19:36:24 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <iostream>
 #include <string>
-
 
 class Zombie
 {
