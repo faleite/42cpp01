@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 18:36:59 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/06/11 18:41:16 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/06/13 17:45:48 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@ void	replaceFunction(std::string& data, const std::string& str1,
 						const std::string& str2)
 {
 	size_t pos = data.find(str1);
-	while (pos != std::string::npos)
+	std::string replace("");
+	while (pos != std::string::npos && !data.empty())
 	{
-		data = data.substr(0, pos) + str2 + data.substr(pos + str1.length());
+		replace += data.substr(0, pos) + str2; 
+		data = data.substr(pos + str1.length());
 		pos = data.find(str1);
 	}
+	data = replace + data;
 }
 
 bool	whiteSpaces(const std::string &string)

@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 15:18:01 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/06/12 17:38:43 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/06/13 20:12:01 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	
+	std::string original = argv[2];
+	if (original.empty())
+	{
+		messageError(argv[0]);
+		return (1);
+	}
+	
 	std::ifstream inputFile(argv[1]);
 	if (inputFile.fail())
 	{
@@ -46,7 +53,6 @@ int	main(int argc, char *argv[])
 		std::cerr << "Error:\nEmpty file" << std::endl;
 		return (3);
 	}
-	
 	replaceFunction(data, argv[2], argv[3]);
 	std::ofstream outputFile((std::string(argv[1]) + ".replace").c_str());
 	outputFile << data;
